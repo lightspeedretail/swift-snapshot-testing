@@ -1048,6 +1048,8 @@
       if #available(iOS 17.0, *) {
         viewController.traitOverrides.horizontalSizeClass = traits.horizontalSizeClass
         viewController.traitOverrides.verticalSizeClass = traits.verticalSizeClass
+        rootViewController.traitOverrides.horizontalSizeClass = traits.horizontalSizeClass
+        rootViewController.traitOverrides.verticalSizeClass = traits.verticalSizeClass
       } else {
         rootViewController.setOverrideTraitCollection(traits, forChild: viewController)
       }
