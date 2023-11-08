@@ -1045,7 +1045,13 @@
       } else {
         rootViewController = viewController
       }
-      rootViewController.setOverrideTraitCollection(traits, forChild: viewController)
+      if #available(iOS 17.0, *) {
+        viewController.traitOverrides.horizontalSizeClass = traits.horizontalSizeClass
+        viewController.traitOverrides.verticalSizeClass = traits.verticalSizeClass
+      } else {
+        rootViewController.setOverrideTraitCollection(traits, forChild: viewController)
+      }
+
       viewController.didMove(toParent: rootViewController)
 
       window.rootViewController = rootViewController
